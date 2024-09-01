@@ -14,6 +14,8 @@ class authController extends Controller
 {
     public function login(Request $request)
     {
+
+        dd('ss');
         //setting log
         $ip_address = $request->getClientIp();
         $activity = "Login";

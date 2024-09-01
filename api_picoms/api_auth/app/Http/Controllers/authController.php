@@ -14,7 +14,6 @@ class authController extends Controller
 {
     public function login(Request $request)
     {
-
         //setting log
         $ip_address = $request->getClientIp();
         $activity = "Login";
@@ -72,7 +71,7 @@ class authController extends Controller
         // // afiez buang sni
 
         ->first();
-        dd($user);
+        
         // dd(\DB::getQueryLog());
         // dd($col_search);
 

@@ -11,7 +11,7 @@ else if(window.location.protocol == "http:"){
     var host = "http://"+window.location.hostname+"/picoms/api_picoms/";
 }
 else {
-    var host = "https://"+window.location.hostname+"/api_picoms/";
+    var host = "https://"+window.location.hostname+"/eAcademic/api_picoms/";
 }
 
 // AMRI

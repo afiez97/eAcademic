@@ -17,8 +17,8 @@ else if(window.location.protocol == "http:"){
 }
 
 else {
-    var host = "https://"+window.location.hostname+"/api_picoms/";
-    var url = "https://"+window.location.hostname+"/eACADEMIC/";
+    var host = "https://"+window.location.hostname+"/eAcademic/api_picoms/";
+    var url = "https://"+window.location.hostname+"/eAcademic/eACADEMIC/";
 }
 
 const dekan = ["DD","DD_HOP","DEAN","DEAN_MGR"];

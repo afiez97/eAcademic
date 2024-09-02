@@ -181,7 +181,7 @@ class mis_prm_calendarController extends Controller
         ]) 
             ->groupBy('cur_year','cal_cohort','cal_id',
             'cal_intake',
-            'cal_status',DB::RAW('SUM(cal_id)'))
+            'cal_status')
             ->orderBy('cur_year','desc') 
             ->orderBy('cal_cohort','desc')
             ->get(

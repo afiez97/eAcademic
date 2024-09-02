@@ -182,14 +182,16 @@ class mis_prm_calendarController extends Controller
             ->groupBy('cur_year','cal_cohort','cal_id')
             ->orderBy('cur_year','desc') 
             ->orderBy('cal_cohort','desc')
-            ->get([
-                // DB::RAW('SUM(cal_id)'),
-                'cal_id',
-                'cur_year',
-                'cal_intake',
-                'cal_status',
-                'cal_cohort'
-            ]);
+            ->get(
+            //     [
+            //     // DB::RAW('SUM(cal_id)'),
+            //     'cal_id',
+            //     'cur_year',
+            //     'cal_intake',
+            //     'cal_status',
+            //     'cal_cohort'
+            // ]
+        );
 
         if($obj){
             return response()->json([

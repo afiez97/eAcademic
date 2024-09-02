@@ -1947,7 +1947,7 @@ class mis_std_regsubjectController extends Controller
                 'mis_prm_course.crs_code AS crsCode',
                 'mis_prm_calendar.cur_year AS cal_year',
                 'mis_prm_calendar.cal_cohort',
-                'mis_prm_calendar.cal_category',
+                'aca_cal_category.cal_category',
                 'aca_cal_category.category',
                 'mis_std_regsubject.aca_session'
             ]);

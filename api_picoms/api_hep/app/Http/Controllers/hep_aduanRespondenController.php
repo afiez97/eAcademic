@@ -494,7 +494,8 @@ Mail::send('mail', $data, function ($message) use ($data, $EmailPurpose) {
             ->leftJoin('hep_hostel_blok', 'hep_aduanResponden.FK_block', '=', 'hep_hostel_blok.block_id')
             ->leftJoin('hep_hostel_room', 'hep_aduanResponden.FK_room', '=', 'hep_hostel_room.room_id')
             ->leftJoin('hep_jenisaduanHostel', 'hep_jenisaduanHostel.pk_id', '=', 'hep_aduanResponden.FK_jenisaduanHostel')
-            ->where('hep_aduanResponden.recordstatus', '!=', 'DEL');
+            // ->where('hep_aduanResponden.recordstatus', '!=', 'DEL')
+            ;
             if($month){
                 // DD($month);
                 $obj = $obj->whereMonth('hep_aduanResponden.aduan_date', '=', $month);

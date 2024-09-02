@@ -1332,7 +1332,9 @@ class hep_hostel_checkInOutController extends Controller
                         $query->whereNull('hep_hostel_chkinout.checkIn_status')
                             ->orWhere('hep_hostel_chkinout.checkIn_status', '!=', 'Check Out');
                     })
-                    ->groupBy('hep_hostel_chkinout.branch_id', 'hep_hostel_chkinout.hostel_id', 'hep_hostel_chkinout.block_id', 'hep_hostel_chkinout.room_id');
+                    ->groupBy('hep_hostel_chkinout.branch_id', 'hep_hostel_chkinout.hostel_id', 'hep_hostel_chkinout.block_id', 'hep_hostel_chkinout.room_id',
+                    'hep_hostel.hostel_name',
+                    'mis_prm_college.clg_name');
             }, 'subquery')
             ->groupBy('hostel_id')
             ->orderBy('hostel_name')

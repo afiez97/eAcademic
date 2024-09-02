@@ -316,7 +316,6 @@ class obe_cloController extends Controller
             ];
         })
         ->values();
-        dd($data2);
 
         // $obj = DB::table('mis_lecturer_course_prm')
         //     ->select(
@@ -350,6 +349,7 @@ class obe_cloController extends Controller
                 ->where('sub_mis_lecturer_course_detail.recordstatus', '!=', 'DEL')
                 ->groupBy('sub_mis_lecturer_course_detail.fk_clo')
                 ->get();
+                dd($result);
 
 
             $obj2 = $result->sum('total_SLT_CI');

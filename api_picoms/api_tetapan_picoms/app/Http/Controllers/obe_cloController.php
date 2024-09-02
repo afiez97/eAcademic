@@ -287,7 +287,8 @@ class obe_cloController extends Controller
             'mis_lecturer_course_detail.pk_id',
             'sub_mis_lecturer_course_detail.marks',
             'sub_mis_lecturer_course_detail.weightage',
-            'sub_mis_lecturer_course_detail.SLT'
+            'sub_mis_lecturer_course_detail.SLT',
+            'obe_clo.SLT_CI'
         )
         ->orderBy('sub_mis_lecturer_course_detail.fk_clo')
         ->get();
@@ -345,7 +346,7 @@ class obe_cloController extends Controller
                 ->where('mis_lecturer_course_prm.recordstatus', '!=', 'DEL')
                 ->where('mis_lecturer_course_detail.recordstatus', '!=', 'DEL')
                 ->where('sub_mis_lecturer_course_detail.recordstatus', '!=', 'DEL')
-                ->groupBy('sub_mis_lecturer_course_detail.fk_clo', 'obe_clo.SLT_CI')
+                ->groupBy('sub_mis_lecturer_course_detail.fk_clo')
                 ->get();
 
 

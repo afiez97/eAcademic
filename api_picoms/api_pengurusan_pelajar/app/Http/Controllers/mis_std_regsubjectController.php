@@ -1943,14 +1943,14 @@ class mis_std_regsubjectController extends Controller
             ->groupBy('aca_session')
             ->groupBy('mis_std_regsubject.crs_code')
             ->get([
-                'crs_name',
+                'mis_prm_course.crs_name',
                 'mis_std_regsubject.crs_code AS fk_crs',
                 'mis_prm_course.crs_code AS crsCode',
                 'mis_prm_calendar.cur_year AS cal_year',
-                'cal_cohort',
-                'cal_category',
-                'category',
-                'aca_session'
+                'mis_prm_calendar.cal_cohort',
+                'mis_prm_calendar.cal_category',
+                'aca_cal_category.category',
+                'mis_std_regsubject.aca_session'
             ]);
 
         if ($obj) {

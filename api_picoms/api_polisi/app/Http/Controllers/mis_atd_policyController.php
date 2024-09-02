@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use App\Models\ mis_atd_policy;
+use App\Models\mis_atd_policy;
 
 class mis_atd_policyController extends Controller
 {

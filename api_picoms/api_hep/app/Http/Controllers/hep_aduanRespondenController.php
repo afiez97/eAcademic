@@ -495,22 +495,20 @@ Mail::send('mail', $data, function ($message) use ($data, $EmailPurpose) {
             ->leftJoin('hep_hostel_room', 'hep_aduanResponden.FK_room', '=', 'hep_hostel_room.room_id')
             ->leftJoin('hep_jenisaduanHostel', 'hep_jenisaduanHostel.pk_id', '=', 'hep_aduanResponden.FK_jenisaduanHostel')
             ->where('hep_aduanResponden.recordstatus', '!=', 'DEL');
-            if ($month) {
-                // Debugging output
-                dd($month);
+            if($month){
+                // DD($month);
                 $obj = $obj->whereMonth('hep_aduanResponden.aduan_date', '=', $month);
             }
-            if ($year) {
-                // Debugging output
-                dd('TEST2');
+            if($year){
+                // DD('TEST2');
                 $obj = $obj->whereYear('hep_aduanResponden.aduan_date', '=', $year);
             }
             // else{
             //     $obj->whereYear('hep_aduanResponden.aduan_date', '=', date("Y"));
             // }
+dd($obj);
             
             $obj = $obj->get();
-
         // $records now contains the result of the query
 
 // dd($obj);

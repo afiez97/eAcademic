@@ -190,7 +190,7 @@ class mis_prm_calendarController extends Controller
                 'cal_status',
                 'cal_cohort'
             ]);
-
+dd($obj);
         if($obj){
             return response()->json([
                 'success'=>true,

@@ -99,7 +99,7 @@ function formatDate(date) {
 }
 
 function logOut(){
-    alert();
+    // alert();
     window.sessionStorage.clear();
     window.location.replace('../admin');
 }

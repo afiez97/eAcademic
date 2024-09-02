@@ -22,7 +22,6 @@ class mis_prm_calendar extends Model implements AuthenticatableContract, Authori
     const CREATED_AT = 'lastapproveon';
 
     protected $table = 'mis_prm_calendar';
-    protected $primaryKey = 'cal_id';
 
     protected $fillable = [
         'cal_id', 'cur_year', 'cal_status', 'cal_cohort', 'cal_category',

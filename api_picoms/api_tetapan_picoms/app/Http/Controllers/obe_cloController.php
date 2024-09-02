@@ -287,8 +287,7 @@ class obe_cloController extends Controller
             'mis_lecturer_course_detail.pk_id',
             'sub_mis_lecturer_course_detail.marks',
             'sub_mis_lecturer_course_detail.weightage',
-            'sub_mis_lecturer_course_detail.SLT',
-            'obe_clo.SLT_CI'
+            'sub_mis_lecturer_course_detail.SLT'
         )
         ->orderBy('sub_mis_lecturer_course_detail.fk_clo')
         ->get();

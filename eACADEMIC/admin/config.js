@@ -97,7 +97,7 @@ function formatDate(date) {
     return x1;
 }
 
-// function logOut(){
-//     window.sessionStorage.clear();
-//     window.location.replace('../admin');
-// }
+function logOut(){
+    window.sessionStorage.clear();
+    window.location.replace('../admin');
+}

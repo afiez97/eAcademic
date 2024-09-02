@@ -142,7 +142,7 @@ $(function(){
             $("#loading_modal").modal("hide");
         }
         else{
-            logOut();
+            // logOut();
         }
     });
 

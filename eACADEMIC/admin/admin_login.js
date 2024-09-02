@@ -13,7 +13,6 @@ $('#formLogin').on('submit', function(e){
     let usr_id = $('#usr_id').val();
     let usr_passwd = $('#usr_passwd').val();
     
-    sessionStorage.usrId = usr_id;
 
     var form = new FormData();
     form.append("usr_id", usr_id);

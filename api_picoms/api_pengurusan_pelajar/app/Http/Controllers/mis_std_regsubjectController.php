@@ -1940,8 +1940,8 @@ class mis_std_regsubjectController extends Controller
             ->leftjoin('mis_prm_course', 'mis_prm_course.pk_id', '=', 'mis_std_regsubject.crs_code')
             ->leftjoin('mis_prm_calendar', 'mis_prm_calendar.cal_id', '=', 'mis_std_regsubject.aca_session')
             ->leftjoin('aca_cal_category', 'aca_cal_category.pk_id', '=', 'mis_prm_calendar.cal_category')
-            // ->groupBy('aca_session')
-            ->groupBy('mis_std_regsubject.crs_code')
+            ->groupBy('aca_session')
+            // ->groupBy('mis_std_regsubject.crs_code')
             // ->groupBy('crs_name')
             // ->groupBy('mis_std_regsubject.crs_code')
             ->get(

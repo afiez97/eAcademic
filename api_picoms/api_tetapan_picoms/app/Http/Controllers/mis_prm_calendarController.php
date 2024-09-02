@@ -175,6 +175,9 @@ class mis_prm_calendarController extends Controller
     }
 
     public function listActive(){
+
+dd('$obj');
+
         $obj = mis_prm_calendar::where([
             // ['cal_status','Active'],
         ['mis_prm_calendar.recordstatus','!=','DEL']
@@ -190,7 +193,6 @@ class mis_prm_calendarController extends Controller
                 'cal_status',
                 'cal_cohort'
             ]);
-dd($obj);
         if($obj){
             return response()->json([
                 'success'=>true,

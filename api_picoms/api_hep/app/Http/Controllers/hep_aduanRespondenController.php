@@ -475,29 +475,26 @@ Mail::send('mail', $data, function ($message) use ($data, $EmailPurpose) {
         $month = $request->input('month');
         $year = $request->input('year');
 
-        $obj = hep_aduanResponden::
-        // select(
-        //     'mis_std_info.std_studentid',
-        //     'mis_std_info.sti_name',
-        //     'mis_std_info.sti_icno',
-        //     'hep_hostel.hostel_name',
-        //     'mis_prm_college.clg_name',
-        //     'hep_hostel_blok.block_name',
-        //     'hep_hostel_room.room_no',
-        //     'hep_aduanResponden.aduan_status',
-        //     'hep_aduanResponden.aduan_details',
-        //     'hep_aduanResponden.aduan_date',
-        //     'hep_jenisaduanHostel.aduan_nama'
-        // )
-            // ->
-           where('hep_aduanResponden.recordstatus', '!=', 'DEL')
-            ->
-            leftJoin('mis_std_info', 'hep_aduanResponden.FK_idStudent', '=', 'mis_std_info.std_studentid')
+        $obj = hep_aduanResponden::select(
+            'mis_std_info.std_studentid',
+            'mis_std_info.sti_name',
+            'mis_std_info.sti_icno',
+            'hep_hostel.hostel_name',
+            'mis_prm_college.clg_name',
+            'hep_hostel_blok.block_name',
+            'hep_hostel_room.room_no',
+            'hep_aduanResponden.aduan_status',
+            'hep_aduanResponden.aduan_details',
+            'hep_aduanResponden.aduan_date',
+            'hep_jenisaduanHostel.aduan_nama'
+        )
+            ->leftJoin('mis_std_info', 'hep_aduanResponden.FK_idStudent', '=', 'mis_std_info.std_studentid')
             ->leftJoin('mis_prm_college', 'hep_aduanResponden.FK_clg', '=', 'mis_prm_college.pk_id')
             ->leftJoin('hep_hostel', 'hep_aduanResponden.FK_hostel', '=', 'hep_hostel.hostel_id')
             ->leftJoin('hep_hostel_blok', 'hep_aduanResponden.FK_block', '=', 'hep_hostel_blok.block_id')
             ->leftJoin('hep_hostel_room', 'hep_aduanResponden.FK_room', '=', 'hep_hostel_room.room_id')
-            ->leftJoin('hep_jenisaduanHostel', 'hep_jenisaduanHostel.pk_id', '=', 'hep_aduanResponden.FK_jenisaduanHostel');
+            ->leftJoin('hep_jenisaduanHostel', 'hep_jenisaduanHostel.pk_id', '=', 'hep_aduanResponden.FK_jenisaduanHostel')
+            ->where('hep_aduanResponden.recordstatus', '!=', 'DEL');
             if($month){
                 // DD($month);
                 $obj = $obj->whereMonth('hep_aduanResponden.aduan_date', '=', $month);

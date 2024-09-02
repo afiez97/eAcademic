@@ -507,8 +507,15 @@ Mail::send('mail', $data, function ($message) use ($data, $EmailPurpose) {
             //     $obj->whereYear('hep_aduanResponden.aduan_date', '=', date("Y"));
             // }
             
-            dd($obj);
-            $obj = $obj->get();
+
+// Dump the query to see if it looks correct
+dd($obj->toSql(), $obj->getBindings());
+
+// Execute the query to get data
+$data = $query->get();
+
+// Dump the data
+dd($data);            $obj = $obj->get();
 
         // $records now contains the result of the query
 

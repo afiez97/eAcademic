@@ -92,28 +92,28 @@ $(function(){
 
     $.fn.select2.defaults.set( "theme", "bootstrap" );
 
-    acaCalActive(function(){
-        $('#semester').append('<option value="">- Choose Academic Session -</option>');
-        let names = "";
-        $.each(obj_kalendar.data, function (i, item){
-            select = "";
-            if(getSession == item.cal_id){
-                select = "selected";
-            }
+    // acaCalActive(function(){
+    //     $('#semester').append('<option value="">- Choose Academic Session -</option>');
+    //     let names = "";
+    //     $.each(obj_kalendar.data, function (i, item){
+    //         select = "";
+    //         if(getSession == item.cal_id){
+    //             select = "selected";
+    //         }
 
-            if(names != item.cur_year.replace('/','')+'/'+item.cal_cohort){
-                names = item.cur_year.replace('/','')+'/'+item.cal_cohort;
+    //         if(names != item.cur_year.replace('/','')+'/'+item.cal_cohort){
+    //             names = item.cur_year.replace('/','')+'/'+item.cal_cohort;
 
-                $('#semester').append('<option '+select+' value="'+item.cal_id+'" calYear="'+item.cur_year+'" calSem="'+item.cal_cohort+'">'+item.cur_year.replace('/','')+'/'+item.cal_cohort+'</option>');
-            }
-        });
+    //             $('#semester').append('<option '+select+' value="'+item.cal_id+'" calYear="'+item.cur_year+'" calSem="'+item.cal_cohort+'">'+item.cur_year.replace('/','')+'/'+item.cal_cohort+'</option>');
+    //         }
+    //     });
 
-        $('.slct2').select2({
-            width: null,
-            containerCssClass: ':all:'
+    //     $('.slct2').select2({
+    //         width: null,
+    //         containerCssClass: ':all:'
             
-        });
-    });
+    //     });
+    // });
 
     // Campus List
     campusList(function(){

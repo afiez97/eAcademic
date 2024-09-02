@@ -349,27 +349,12 @@ class obe_cloController extends Controller
                 ->where('sub_mis_lecturer_course_detail.recordstatus', '!=', 'DEL')
                 ->groupBy('sub_mis_lecturer_course_detail.fk_clo', 'obe_clo.SLT_CI')
                 ->get();
-                dd($result);
 
 
             $obj2 = $result->sum('total_SLT_CI');
             $obj3 = $data2->sum('total_assSLT');
 
-            if (!($result)) {
-            }
-            else if(!($obj)){
-                dd('2');
-
-
-            }
-            else if(!($data2)){
-                dd('3');
-
-            }
-            else if(!($obj3)){
-                dd('4');
-
-            }
+ 
 
         if ($obj){
             return response()->json([

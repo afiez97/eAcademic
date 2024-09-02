@@ -497,7 +497,7 @@ Mail::send('mail', $data, function ($message) use ($data, $EmailPurpose) {
             ->where('hep_aduanResponden.recordstatus', '!=', 'DEL');
 
             if($month != ''){
-                // DD($month);
+                DD($month);
                 $obj = $obj->whereMonth('hep_aduanResponden.aduan_date', '=', $month);
             }
             if($year != ''){

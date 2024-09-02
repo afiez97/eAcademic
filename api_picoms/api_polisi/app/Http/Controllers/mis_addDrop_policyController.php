@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use App\Models\ mis_addDrop_policy;
+use App\Models\mis_addDrop_policy;
 
 class mis_addDrop_policyController extends Controller
 {

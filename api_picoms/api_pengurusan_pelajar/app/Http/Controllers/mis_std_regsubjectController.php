@@ -1952,18 +1952,29 @@ class mis_std_regsubjectController extends Controller
                 'aca_cal_category.category',
                 'mis_std_regsubject.aca_session'
             )
-            ->get(
-                [
-                'crs_name',
-                'mis_std_regsubject.crs_code AS fk_crs',
-                'mis_prm_course.crs_code AS crsCode',
-                'mis_prm_calendar.cur_year AS cal_year',
-                'cal_cohort',
-                'cal_category',
-                'category',
-                'aca_session'
-            ]
-        );
+        //     ->get(
+        //         [
+        //         'crs_name',
+        //         'mis_std_regsubject.crs_code AS fk_crs',
+        //         'mis_prm_course.crs_code AS crsCode',
+        //         'mis_prm_calendar.cur_year AS cal_year',
+        //         'cal_cohort',
+        //         'cal_category',
+        //         'category',
+        //         'aca_session'
+        //     ]
+        // )
+        ->select(
+            'mis_prm_course.crs_name AS crs_name',
+            'mis_std_regsubject.crs_code AS fk_crs',
+            'mis_prm_course.crs_code AS crsCode',
+            'mis_prm_calendar.cur_year AS cal_year',
+            'mis_prm_calendar.cal_cohort AS cal_cohort',
+            'mis_prm_calendar.cal_category AS cal_category',
+            'aca_cal_category.category AS category',
+            'mis_std_regsubject.aca_session AS aca_session'
+        )
+        ->get();
 
         if ($obj) {
             return response()->json([

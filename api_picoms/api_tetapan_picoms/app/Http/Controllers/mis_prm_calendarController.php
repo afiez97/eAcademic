@@ -176,16 +176,17 @@ class mis_prm_calendarController extends Controller
 
     public function listActive(){
 
+        
+        $obj = 
+        DB::table('mis_prm_calendar')->
+        where('recordstatus', '!=', 'DEL')
 
-        $obj = mis_prm_calendar::where([
-            // ['cal_status','Active'],
-        ['mis_prm_calendar.recordstatus','!=','DEL']
-        ]) 
+
             ->groupBy('cur_year','cal_cohort','cal_id')
             ->orderBy('cur_year','desc') 
             ->orderBy('cal_cohort','desc')
             ->get([
-                DB::RAW('SUM(cal_id) as total_cal_id'),
+                DB::RAW('SUM(cal_id)'),
                 'cal_id',
                 'cur_year',
                 'cal_intake',

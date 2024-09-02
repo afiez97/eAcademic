@@ -1337,12 +1337,13 @@ class hep_hostel_checkInOutController extends Controller
             ->groupBy('hostel_id')
             ->orderBy('hostel_name')
             ->get();
+dd($result);
+
         $groupedResult = $obj->groupBy('clg_name')->map(function ($colleges) {
             return $colleges->mapWithKeys(function ($hostel) {
                 return [$hostel->hostel_name => $hostel->total_bed];
             });
         });
-
         $groupedResult2 = $result->groupBy('clg_name')->map(function ($colleges) {
             return $colleges->mapWithKeys(function ($hostel) {
                 return [$hostel->hostel_name => $hostel->total_count];

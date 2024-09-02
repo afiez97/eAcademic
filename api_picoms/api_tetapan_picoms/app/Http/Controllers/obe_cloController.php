@@ -262,7 +262,6 @@ class obe_cloController extends Controller
     public function showByCoursedet2(Request $request){
 
         $FK_course = $request->input('FK_course');
-        dd('1');
 
         $obj = DB::table('mis_lecturer_course_prm')
         ->select(
@@ -288,7 +287,9 @@ class obe_cloController extends Controller
             'mis_lecturer_course_detail.pk_id',
             'sub_mis_lecturer_course_detail.marks',
             'sub_mis_lecturer_course_detail.weightage',
-            'sub_mis_lecturer_course_detail.SLT'
+            'sub_mis_lecturer_course_detail.SLT',
+            'obe_clo.SLT_CI'
+
         )
         ->orderBy('sub_mis_lecturer_course_detail.fk_clo')
         ->get();

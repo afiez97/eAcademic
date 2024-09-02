@@ -38,6 +38,7 @@ class PolicyMakeCommand extends GeneratorCommand
     protected function buildClass($name)
     {
         $stub = parent::buildClass($name);
+
         $model = $this->option('model');
 
         return $model ? $this->replaceModel($stub, $model) : $stub;
@@ -58,7 +59,7 @@ class PolicyMakeCommand extends GeneratorCommand
         if (Str::startsWith($model, '\\')) {
             $stub = str_replace('NamespacedDummyModel', trim($model, '\\'), $stub);
         } else {
-            $stub = str_replace('NamespacedDummyModel', $this->qualifyModel($model), $stub);
+            $stub = str_replace('NamespacedDummyModel', $this->laravel->getNamespace().$model, $stub);
         }
 
         $model = class_basename(trim($model, '\\'));

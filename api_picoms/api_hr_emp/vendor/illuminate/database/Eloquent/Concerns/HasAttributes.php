@@ -296,7 +296,7 @@ trait HasAttributes
                 $attributes[$key] = $this->serializeClassCastableAttribute($key, $attributes[$key]);
             }
 
-            if ($this->isEnumCastable($key) && (! ($attributes[$key] ?? null) instanceof Arrayable)) {
+            if ($this->isEnumCastable($key)) {
                 $attributes[$key] = isset($attributes[$key]) ? $attributes[$key]->value : null;
             }
 
@@ -499,10 +499,6 @@ trait HasAttributes
      */
     public function isRelation($key)
     {
-        if ($this->hasAttributeMutator($key)) {
-            return false;
-        }
-
         return method_exists($this, $key) ||
             (static::$relationResolvers[get_class($this)][$key] ?? null);
     }
@@ -517,10 +513,6 @@ trait HasAttributes
     {
         if (isset(static::$lazyLoadingViolationCallback)) {
             return call_user_func(static::$lazyLoadingViolationCallback, $this, $key);
-        }
-
-        if (! $this->exists || $this->wasRecentlyCreated) {
-            return;
         }
 
         throw new LazyLoadingViolationException($this, $key);

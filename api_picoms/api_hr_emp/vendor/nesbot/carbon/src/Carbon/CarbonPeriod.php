@@ -163,8 +163,6 @@ use RuntimeException;
  * @method $this floorMicroseconds(float $precision = 1) Truncate the current instance microsecond with given precision.
  * @method $this ceilMicrosecond(float $precision = 1) Ceil the current instance microsecond with given precision.
  * @method $this ceilMicroseconds(float $precision = 1) Ceil the current instance microsecond with given precision.
- *
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class CarbonPeriod implements Iterator, Countable, JsonSerializable
 {
@@ -377,7 +375,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
             );
         }
 
-        $class = static::class;
+        $class = \get_called_class();
         $type = \gettype($period);
 
         throw new NotAPeriodException(
@@ -655,10 +653,10 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
                 $this->setTimezone($argument);
             } elseif ($this->dateInterval === null &&
                 (
-                    (\is_string($argument) && preg_match(
+                    \is_string($argument) && preg_match(
                         '/^(-?\d(\d(?![\/-])|[^\d\/-]([\/-])?)*|P[T0-9].*|(?:\h*\d+(?:\.\d+)?\h*[a-z]+)+)$/i',
                         $argument
-                    )) ||
+                    ) ||
                     $argument instanceof DateInterval ||
                     $argument instanceof Closure
                 ) &&
@@ -1235,7 +1233,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      */
     public function setRecurrences($recurrences)
     {
-        if ((!is_numeric($recurrences) && $recurrences !== null) || $recurrences < 0) {
+        if (!is_numeric($recurrences) && $recurrences !== null || $recurrences < 0) {
             throw new InvalidPeriodParameterException('Invalid number of recurrences.');
         }
 
@@ -1461,7 +1459,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
 
         $parts = [];
 
-        $format = !$this->startDate->isStartOfDay() || ($this->endDate && !$this->endDate->isStartOfDay())
+        $format = !$this->startDate->isStartOfDay() || $this->endDate && !$this->endDate->isStartOfDay()
             ? 'Y-m-d H:i:s'
             : 'Y-m-d';
 
@@ -2181,10 +2179,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      */
     public function round($precision = null, $function = 'round')
     {
-        return $this->roundWith(
-            $precision ?? $this->getDateInterval()->setLocalTranslator(TranslatorImmutable::get('en'))->forHumans(),
-            $function
-        );
+        return $this->roundWith($precision ?? (string) $this->getDateInterval(), $function);
     }
 
     /**

@@ -1952,6 +1952,7 @@ class mis_std_regsubjectController extends Controller
         //         'category',
         //         'aca_session'
         //     ]);
+        dd('s');
         $obj = DB::table('mis_std_regsubject')
             ->leftJoin('mis_prm_course', 'mis_prm_course.pk_id', '=', 'mis_std_regsubject.crs_code')
             ->leftJoin('mis_prm_calendar', 'mis_prm_calendar.cal_id', '=', 'mis_std_regsubject.aca_session')

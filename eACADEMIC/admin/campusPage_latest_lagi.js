@@ -142,8 +142,9 @@ $(function(){
             $("#loading_modal").modal("hide");
         }
         else{
+            alert('sadhiasjkhcn');
             // logOut();
-            
+
         }
     });
 

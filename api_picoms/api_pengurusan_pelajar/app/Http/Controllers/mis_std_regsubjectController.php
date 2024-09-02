@@ -1949,8 +1949,8 @@ class mis_std_regsubjectController extends Controller
                 'mis_prm_calendar.cur_year',
                 'mis_prm_calendar.cal_cohort',
                 'mis_prm_calendar.cal_category',
-                'mis_prm_calendar.category',
-                'mis_prm_calendar.aca_session'
+                'aca_cal_category.category',
+                'mis_std_regsubject.aca_session'
             )
             ->get(
                 [

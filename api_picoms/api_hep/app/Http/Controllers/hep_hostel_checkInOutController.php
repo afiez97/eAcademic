@@ -1335,7 +1335,7 @@ class hep_hostel_checkInOutController extends Controller
                     })
                     ->groupBy('branch_id', 'hep_hostel_chkinout.hostel_id', 'hep_hostel_chkinout.block_id', 'hep_hostel_chkinout.room_id');
             }, 'subquery')
-            ->groupBy('hostel_id')
+            // ->groupBy('hostel_id')
             ->orderBy('hostel_name')
             ->get();
         dd( $result);

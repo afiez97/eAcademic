@@ -345,7 +345,7 @@ class obe_cloController extends Controller
                 ->where('mis_lecturer_course_prm.recordstatus', '!=', 'DEL')
                 ->where('mis_lecturer_course_detail.recordstatus', '!=', 'DEL')
                 ->where('sub_mis_lecturer_course_detail.recordstatus', '!=', 'DEL')
-                ->groupBy('sub_mis_lecturer_course_detail.fk_clo')
+                ->groupBy('sub_mis_lecturer_course_detail.fk_clo', 'obe_clo.SLT_CI')
                 ->get();
 
 

@@ -292,6 +292,7 @@ class obe_cloController extends Controller
         ->orderBy('sub_mis_lecturer_course_detail.fk_clo')
         ->get();
     
+        dd('1');
 
         $data2 = $obj->groupBy(
             'fk_clo',
@@ -353,7 +354,6 @@ class obe_cloController extends Controller
             $obj3 = $data2->sum('total_assSLT');
 
             if (!($result)) {
-                dd('1');
             }
             else if(!($obj)){
                 dd('2');

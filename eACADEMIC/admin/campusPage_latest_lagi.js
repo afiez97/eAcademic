@@ -140,9 +140,10 @@ $(function(){
                 $("#campus_select").append('<option value="' + item.pk_id + '">'+item.clg_name+'</option>');
             });
             $("#loading_modal").modal("hide");
+            
+            console.log('test-mimi')
         }
         else{
-            console.log('test-mimi')
             logOut();
         }
     });

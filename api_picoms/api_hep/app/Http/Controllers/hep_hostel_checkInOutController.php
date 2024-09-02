@@ -1274,6 +1274,8 @@ class hep_hostel_checkInOutController extends Controller
             )
             ->orderBy('hep_hostel.hostel_name', 'ASC')
             ->get();
+
+            dd( $obj);
         // DB::table('hep_hostel_room')
         // ->select(
         //     'hep_hostel.hostel_name',

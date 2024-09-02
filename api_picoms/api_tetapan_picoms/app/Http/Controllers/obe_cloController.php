@@ -293,7 +293,6 @@ class obe_cloController extends Controller
         )
         ->orderBy('sub_mis_lecturer_course_detail.fk_clo')
         ->get();
-        dd($obj);
     
 
         $data2 = $obj->groupBy(
@@ -317,6 +316,7 @@ class obe_cloController extends Controller
             ];
         })
         ->values();
+        dd($data2);
 
         // $obj = DB::table('mis_lecturer_course_prm')
         //     ->select(

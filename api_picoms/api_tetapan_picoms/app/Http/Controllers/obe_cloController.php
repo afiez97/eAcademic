@@ -293,6 +293,7 @@ class obe_cloController extends Controller
         )
         ->orderBy('sub_mis_lecturer_course_detail.fk_clo')
         ->get();
+        dd($obj);
     
 
         $data2 = $obj->groupBy(

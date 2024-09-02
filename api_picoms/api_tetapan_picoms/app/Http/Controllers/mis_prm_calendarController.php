@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\DB;
 
 class mis_prm_calendarController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     
     public function register(Request $request){
         $cur_year = $request->input('cur_year');

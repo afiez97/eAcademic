@@ -506,9 +506,11 @@ Mail::send('mail', $data, function ($message) use ($data, $EmailPurpose) {
             // else{
             //     $obj->whereYear('hep_aduanResponden.aduan_date', '=', date("Y"));
             // }
-dd($obj);
             
-            $obj = $obj->get();
+            $obj2 = $obj->get();
+
+dd($obj2);
+
         // $records now contains the result of the query
 
 // dd($obj);

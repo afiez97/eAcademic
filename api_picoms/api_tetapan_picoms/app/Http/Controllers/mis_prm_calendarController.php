@@ -179,7 +179,7 @@ class mis_prm_calendarController extends Controller
             // ['cal_status','Active'],
         ['mis_prm_calendar.recordstatus','!=','DEL']
         ]) 
-            ->groupBy('cur_year','cal_cohort','cal_id')
+            // ->groupBy('cur_year','cal_cohort','cal_id')
             ->orderBy('cur_year','desc') 
             ->orderBy('cal_cohort','desc')
             ->get(

@@ -1941,24 +1941,19 @@ class mis_std_regsubjectController extends Controller
             ->leftjoin('mis_prm_calendar', 'mis_prm_calendar.cal_id', '=', 'mis_std_regsubject.aca_session')
             ->leftjoin('aca_cal_category', 'aca_cal_category.pk_id', '=', 'mis_prm_calendar.cal_category')
             // ->groupBy('aca_session')
-            ->groupBy('mis_std_regsubject.crs_code',
-            'crs_name',
-            'mis_prm_course.crs_code',
-            'mis_prm_calendar.cur_year',
-            'cal_cohort',
-            'category',
-            'aca_session'           
-            )
-            ->get([
-                'crs_name',
-                'mis_std_regsubject.crs_code AS fk_crs',
-                'mis_prm_course.crs_code AS crsCode',
-                'mis_prm_calendar.cur_year AS cal_year',
-                'cal_cohort',
-                'cal_category',
-                'category',
-                'aca_session'
-            ]);
+            // ->groupBy('mis_std_regsubject.crs_code')
+            ->get(
+            //     [
+            //     'crs_name',
+            //     'mis_std_regsubject.crs_code AS fk_crs',
+            //     'mis_prm_course.crs_code AS crsCode',
+            //     'mis_prm_calendar.cur_year AS cal_year',
+            //     'cal_cohort',
+            //     'cal_category',
+            //     'category',
+            //     'aca_session'
+            // ]
+        );
 
         if ($obj) {
             return response()->json([

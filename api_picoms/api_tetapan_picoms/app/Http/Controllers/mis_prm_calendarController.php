@@ -176,7 +176,6 @@ class mis_prm_calendarController extends Controller
 
     public function listActive(){
 
-dd('$obj');
 
         $obj = mis_prm_calendar::where([
             // ['cal_status','Active'],

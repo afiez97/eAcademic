@@ -352,6 +352,22 @@ class obe_cloController extends Controller
             $obj2 = $result->sum('total_SLT_CI');
             $obj3 = $data2->sum('total_assSLT');
 
+            if (!($result)) {
+                dd('1');
+            }
+            else if(!($obj)){
+                dd('2');
+
+
+            }
+            else if(!($data2)){
+                dd('3');
+
+            }
+            else if(!($obj3)){
+                dd('4');
+
+            }
 
         if ($obj){
             return response()->json([

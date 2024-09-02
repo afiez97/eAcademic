@@ -495,7 +495,7 @@ Mail::send('mail', $data, function ($message) use ($data, $EmailPurpose) {
             ->leftJoin('hep_hostel_room', 'hep_aduanResponden.FK_room', '=', 'hep_hostel_room.room_id')
             ->leftJoin('hep_jenisaduanHostel', 'hep_jenisaduanHostel.pk_id', '=', 'hep_aduanResponden.FK_jenisaduanHostel')
             ->where('hep_aduanResponden.recordstatus', '!=', 'DEL');
-            dd($obj);
+            dd($month);
 
             if($month){
                 // DD($month);

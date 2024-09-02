@@ -7,7 +7,7 @@ $(function(){
     let token = window.sessionStorage.token;
 
     if(token == null){
-        alert(6); 
+        // alert(6); 
         logOut();
     }
     else{

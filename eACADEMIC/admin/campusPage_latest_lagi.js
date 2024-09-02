@@ -144,7 +144,7 @@ $(function(){
             // console.log('test-mimi')
         }
         else{
-            alert(2); 
+            // alert(2); 
             logOut();
         }
     });

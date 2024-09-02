@@ -1931,31 +1931,58 @@ class mis_std_regsubjectController extends Controller
         $curYear = str_replace("-", "/", $cur_year);
         $cal_cohort = $request->input('cal_cohort');
 
-        $obj = mis_std_regsubject::where([
-            ['mis_std_regsubject.recordstatus', '!=', 'DEL'],
-            ['rsb_status', 'Register'],
-            ['mis_prm_calendar.cur_year', $cur_year],
-            ['cal_cohort', $cal_cohort]
-        ])
-            ->leftjoin('mis_prm_course', 'mis_prm_course.pk_id', '=', 'mis_std_regsubject.crs_code')
-            ->leftjoin('mis_prm_calendar', 'mis_prm_calendar.cal_id', '=', 'mis_std_regsubject.aca_session')
-            ->leftjoin('aca_cal_category', 'aca_cal_category.pk_id', '=', 'mis_prm_calendar.cal_category')
-            ->groupBy('aca_session')
-            ->groupBy('mis_std_regsubject.crs_code')
-            ->select(   [
-                'crs_name',
-                'mis_std_regsubject.crs_code AS fk_crs',
-                'mis_prm_course.crs_code AS crsCode',
-                'mis_prm_calendar.cur_year AS cal_year',
-                'cal_cohort',
-                'cal_category',
-                'category',
-                'aca_session'
-            ])
-            ->get(
-             
-        );
-dd($obj);
+        // $obj = mis_std_regsubject::where([
+        //     ['mis_std_regsubject.recordstatus', '!=', 'DEL'],
+        //     ['rsb_status', 'Register'],
+        //     ['mis_prm_calendar.cur_year', $cur_year],
+        //     ['cal_cohort', $cal_cohort]
+        // ])
+        //     ->leftjoin('mis_prm_course', 'mis_prm_course.pk_id', '=', 'mis_std_regsubject.crs_code')
+        //     ->leftjoin('mis_prm_calendar', 'mis_prm_calendar.cal_id', '=', 'mis_std_regsubject.aca_session')
+        //     ->leftjoin('aca_cal_category', 'aca_cal_category.pk_id', '=', 'mis_prm_calendar.cal_category')
+        //     ->groupBy('aca_session')
+        //     ->groupBy('mis_std_regsubject.crs_code')
+        //     ->get([
+        //         'crs_name',
+        //         'mis_std_regsubject.crs_code AS fk_crs',
+        //         'mis_prm_course.crs_code AS crsCode',
+        //         'mis_prm_calendar.cur_year AS cal_year',
+        //         'cal_cohort',
+        //         'cal_category',
+        //         'category',
+        //         'aca_session'
+        //     ]);
+
+
+$obj = DB::table('mis_std_regsubject')
+->leftJoin('mis_prm_course', 'mis_prm_course.pk_id', '=', 'mis_std_regsubject.crs_code')
+->leftJoin('mis_prm_calendar', 'mis_prm_calendar.cal_id', '=', 'mis_std_regsubject.aca_session')
+->leftJoin('aca_cal_category', 'aca_cal_category.pk_id', '=', 'mis_prm_calendar.cal_category')
+->where('mis_std_regsubject.recordstatus', '!=', 'DEL')
+->where('mis_std_regsubject.rsb_status', 'Register')
+->where('mis_prm_calendar.cur_year', $cur_year)  // Use the appropriate $cur_year value
+->where('mis_prm_calendar.cal_cohort', $cal_cohort)  // Use the appropriate $cal_cohort value
+->groupBy(
+    'mis_prm_course.crs_name',
+    'mis_std_regsubject.crs_code',
+    'mis_prm_course.crs_code',
+    'mis_prm_calendar.cur_year',
+    'mis_prm_calendar.cal_cohort',
+    'mis_prm_calendar.cal_category',
+    'aca_cal_category.category',
+    'mis_std_regsubject.aca_session'
+)
+->select(
+    'mis_prm_course.crs_name AS crs_name',
+    'mis_std_regsubject.crs_code AS fk_crs',
+    'mis_prm_course.crs_code AS crsCode',
+    'mis_prm_calendar.cur_year AS cal_year',
+    'mis_prm_calendar.cal_cohort AS cal_cohort',
+    'mis_prm_calendar.cal_category AS cal_category',
+    'aca_cal_category.category AS category',
+    'mis_std_regsubject.aca_session AS aca_session'
+)
+->get();
         if ($obj) {
             return response()->json([
                 'success' => 'true',

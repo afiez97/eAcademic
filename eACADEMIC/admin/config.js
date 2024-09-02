@@ -4,7 +4,8 @@ if(window.location.hostname == "localhost" && !window.location.port){
     var url = "http://"+window.location.hostname+"/picoms/eACADEMIC/";
 }
 else if(window.location.hostname == "localhost" && window.location.port == "8081"){
-    var host = "http://"+window.location.hostname+":8082/";
+    var host = "http://"+window.location.hostname+":8081/vms/api_picoms/";
+    // var host = "http://"+window.location.hostname+":8082/eACADEMIC/api_picoms/";
 //    var host = "http://"+window.location.hostname+":8081/picoms/api_picoms/";
 
     var url = "http://"+window.location.hostname+":8081/picoms/eACADEMIC/";

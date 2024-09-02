@@ -64,6 +64,7 @@ $(function(){
             });
         }
         else{
+            alert(5); 
             logOut();
         }
     });

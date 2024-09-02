@@ -90,6 +90,7 @@ $(function(){
             });
         }
         else{
+            alert(4); 
             logOut();
         }
     });

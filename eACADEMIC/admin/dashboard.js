@@ -426,6 +426,7 @@ async function month(){
             });
         }
         else{
+            alert(3); 
             logOut();
         }
         resolve();            

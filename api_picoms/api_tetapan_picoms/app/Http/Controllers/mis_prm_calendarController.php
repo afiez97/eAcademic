@@ -179,7 +179,9 @@ class mis_prm_calendarController extends Controller
             // ['cal_status','Active'],
         ['mis_prm_calendar.recordstatus','!=','DEL']
         ]) 
-            ->groupBy('cur_year','cal_cohort','cal_id')
+            ->groupBy('cur_year','cal_cohort','cal_id',
+            'cal_intake',
+            'cal_status')
             ->orderBy('cur_year','desc') 
             ->orderBy('cal_cohort','desc')
             ->get(
@@ -187,8 +189,8 @@ class mis_prm_calendarController extends Controller
             //     // DB::RAW('SUM(cal_id)'),
                 'cal_id',
                 'cur_year',
-            //     'cal_intake',
-            //     'cal_status',
+                'cal_intake',
+                'cal_status',
                 'cal_cohort'
             ]
         );

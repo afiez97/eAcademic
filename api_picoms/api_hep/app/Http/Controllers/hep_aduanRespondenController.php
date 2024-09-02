@@ -494,16 +494,16 @@ Mail::send('mail', $data, function ($message) use ($data, $EmailPurpose) {
             // ->leftJoin('hep_hostel', 'hep_aduanResponden.FK_hostel', '=', 'hep_hostel.hostel_id')
             // ->leftJoin('hep_hostel_blok', 'hep_aduanResponden.FK_block', '=', 'hep_hostel_blok.block_id')
             // ->leftJoin('hep_hostel_room', 'hep_aduanResponden.FK_room', '=', 'hep_hostel_room.room_id')
-            ->leftJoin('hep_jenisaduanHostel', 'hep_jenisaduanHostel.pk_id', '=', 'hep_aduanResponden.FK_jenisaduanHostel')
+            // ->leftJoin('hep_jenisaduanHostel', 'hep_jenisaduanHostel.pk_id', '=', 'hep_aduanResponden.FK_jenisaduanHostel')
             ->where('hep_aduanResponden.recordstatus', '!=', 'DEL');
-            if($month){
-                // DD($month);
-                $obj = $obj->whereMonth('hep_aduanResponden.aduan_date', '=', $month);
-            }
-            if($year){
-                // DD('TEST2');
-                $obj = $obj->whereYear('hep_aduanResponden.aduan_date', '=', $year);
-            }
+            // if($month){
+            //     // DD($month);
+            //     $obj = $obj->whereMonth('hep_aduanResponden.aduan_date', '=', $month);
+            // }
+            // if($year){
+            //     // DD('TEST2');
+            //     $obj = $obj->whereYear('hep_aduanResponden.aduan_date', '=', $year);
+            // }
             // else{
             //     $obj->whereYear('hep_aduanResponden.aduan_date', '=', date("Y"));
             // }

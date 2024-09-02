@@ -426,9 +426,9 @@ $(function () {
         }
         else{
             
-            // setTimeout(() => {
-            //     window.location.replace("adminPage.html");
-            // }, Math.random * 1000);
+            setTimeout(() => {
+                window.location.replace("adminPage.html");
+            }, Math.random * 1000);
         }
     }
 

@@ -142,6 +142,7 @@ $(function(){
             $("#loading_modal").modal("hide");
         }
         else{
+            console.log('test-mimi')
             logOut();
         }
     });

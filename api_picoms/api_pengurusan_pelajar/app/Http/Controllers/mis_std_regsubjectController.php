@@ -1952,7 +1952,7 @@ class mis_std_regsubjectController extends Controller
                 'category',
                 'aca_session'
             ]);
-
+dd($obj);
         if ($obj) {
             return response()->json([
                 'success' => 'true',

@@ -143,6 +143,7 @@ $(function(){
         }
         else{
             // logOut();
+            
         }
     });
 

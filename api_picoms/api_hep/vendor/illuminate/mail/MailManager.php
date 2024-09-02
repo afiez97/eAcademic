@@ -436,7 +436,7 @@ class MailManager implements FactoryContract
      *
      * @param  string  $name
      * @return array
-     */ 
+     */
     protected function getConfig(string $name)
     {
         // Here we will check if the "driver" key exists and if it does we will use

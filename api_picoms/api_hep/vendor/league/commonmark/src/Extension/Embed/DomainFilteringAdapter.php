@@ -17,7 +17,6 @@ class DomainFilteringAdapter implements EmbedAdapterInterface
 {
     private EmbedAdapterInterface $decorated;
 
-    /** @psalm-var non-empty-string */
     private string $regex;
 
     /**
@@ -34,15 +33,13 @@ class DomainFilteringAdapter implements EmbedAdapterInterface
      */
     public function updateEmbeds(array $embeds): void
     {
-        $this->decorated->updateEmbeds(\array_values(\array_filter($embeds, function (Embed $embed): bool {
+        $this->decorated->updateEmbeds(\array_filter($embeds, function (Embed $embed): bool {
             return \preg_match($this->regex, $embed->getUrl()) === 1;
-        })));
+        }));
     }
 
     /**
      * @param string[] $allowedDomains
-     *
-     * @psalm-return non-empty-string
      */
     private static function createRegex(array $allowedDomains): string
     {

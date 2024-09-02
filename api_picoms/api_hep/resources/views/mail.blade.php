@@ -18,7 +18,7 @@
 <br><br>
  Thanks,
  <br>
- Variable Move Solution,
+ University College of MAIWP,
  <br>
  No.3, Jalan 31/10A, Kawasan Perindustrian IKS, Taman Batu Muda,
  <br>

@@ -141,7 +141,7 @@ $(function(){
             });
             $("#loading_modal").modal("hide");
             
-            console.log('test-mimi')
+            // console.log('test-mimi')
         }
         else{
             alert(2); 

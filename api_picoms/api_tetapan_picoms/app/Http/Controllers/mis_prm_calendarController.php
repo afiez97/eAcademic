@@ -175,13 +175,10 @@ class mis_prm_calendarController extends Controller
     }
 
     public function listActive(){
-
-        
-        $obj = 
-        DB::table('mis_prm_calendar')->
-        where('recordstatus', '!=', 'DEL')
-
-
+        $obj = mis_prm_calendar::where([
+            // ['cal_status','Active'],
+        ['mis_prm_calendar.recordstatus','!=','DEL']
+        ]) 
             ->groupBy('cur_year','cal_cohort','cal_id')
             ->orderBy('cur_year','desc') 
             ->orderBy('cal_cohort','desc')
@@ -193,6 +190,7 @@ class mis_prm_calendarController extends Controller
                 'cal_status',
                 'cal_cohort'
             ]);
+
         if($obj){
             return response()->json([
                 'success'=>true,

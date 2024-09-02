@@ -1943,7 +1943,15 @@ class mis_std_regsubjectController extends Controller
             // ->groupBy('aca_session')
             // ->groupBy('mis_std_regsubject.crs_code')
             // ->groupBy('crs_name')
-            // ->groupBy('mis_std_regsubject.crs_code')
+            ->groupBy(
+                'mis_prm_course.crs_name',
+                'mis_std_regsubject.crs_code',
+                'mis_prm_calendar.cur_year',
+                'mis_prm_calendar.cal_cohort',
+                'mis_prm_calendar.cal_category',
+                'mis_prm_calendar.category',
+                'mis_prm_calendar.aca_session'
+            )
             ->get(
                 [
                 'crs_name',
